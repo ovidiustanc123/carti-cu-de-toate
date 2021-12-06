@@ -1,0 +1,39 @@
+[x-cloak] {
+    display: none !important;
+}
+
+.card {
+    background-color: #F8F9F9;
+    box-shadow: 2px 4px 7px rgb(0 0 0 / 4%);
+    border-radius: 10px;
+}
+
+.main {
+    background-color: #eff2f1;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+/* width */
+.scroll::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+}
+
+  /* Track */
+.scroll::-webkit-scrollbar-track {
+border-radius: 100vh;
+background: #edf2f7;
+}
+
+/* Handle */
+.scroll::-webkit-scrollbar-thumb {
+background: #a0aec0;
+border-radius: 100vh;
+border: 3px solid #edf2f7;
+}
