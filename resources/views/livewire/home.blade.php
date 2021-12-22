@@ -1,8 +1,18 @@
 <div class="flex flex-col w-full h-full px-10 py-10 rounded-md card">
-    <div id="filters" class="mb-20">
-filters tbd
+    <div id="filters" class="flex items-center justify-between w-1/2 mb-10">
+        <span>Categorie:</span>
+        <div class="flex items-center">
+            <input wire:model='category' type="radio" class="text-green-500 border border-gray-600 form-radio" name="category" id="toate" value="0">
+            <label for="toate" class="ml-1">Toate</label>
+        </div>
+        @foreach (App\Models\Category::all() as $category)
+            <div class="flex items-center">
+                <input wire:model='category' type="radio" class="text-green-500 border border-gray-600 form-radio" name="category" id="{{$category->name}}" value="{{$category->id}}">
+                <label for="{{$category->name}}" class="ml-1">{{$category->name}}</label>
+            </div>
+        @endforeach
     </div>
-    <div id="books" class="grid grid-cols-4 gap-20">
+    <div id="books" class="grid grid-cols-2 gap-20 xl:grid-cols-4">
         @forelse($books as $book)
             <div id="book-card" class="flex flex-col items-center">
                 <span class="mb-1 text-2xl text-center text-green-600">{{ mb_strimwidth($book->name, 0, 30, "...") }}</span>

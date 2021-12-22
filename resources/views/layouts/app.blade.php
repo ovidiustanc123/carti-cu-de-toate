@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="shortcut icon" type="image/png" href="/img/book-icon.png">
+    <link rel="shortcut icon" sizes="192x192" href="/img/book-icon.png">
+    <link rel="apple-touch-icon" href="/img/book-icon.png">
+
     <title>Cărți cu de toate</title>
 
     <!-- Fonts -->
