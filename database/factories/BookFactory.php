@@ -19,7 +19,7 @@ class BookFactory extends Factory
             'category_id' => Arr::random(['1', '2', '3', '4']),
             'author' => $this->faker->name(),
             'description' => $this->faker->text(500),
-            'picture' => '/img/books/cover-placeholder.jpg',
+            'picture' => 'cover-placeholder.jpg',
             'copies' => $this->faker->numberBetween(0, 10),
             'pages' => $this->faker->numberBetween(10, 1000)
         ];

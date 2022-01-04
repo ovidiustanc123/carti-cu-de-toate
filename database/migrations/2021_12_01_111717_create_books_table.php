@@ -19,7 +19,7 @@ class CreateBooksTable extends Migration
             $table->foreignId('category_id')->constrained('categories');
             $table->string('author');
             $table->text('description');
-            $table->string('picture');
+            $table->string('picture')->nullable();
             $table->integer('copies');
             $table->string('pages');
             $table->timestamps();

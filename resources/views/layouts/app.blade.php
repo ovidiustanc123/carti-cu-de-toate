@@ -21,13 +21,13 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body class="font-poppins scroll {{in_array(request()->route()->getName(),['home', 'profile', 'management-studenti', 'editare-utilizator', 'management-carti', 'carte']) ? 'main' : ''}}">
+<body class="font-poppins scroll {{in_array(request()->route()->getName(),['home', 'profile', 'management-studenti', 'editare-utilizator', 'management-carti', 'carte', 'imprumuturi', 'cartile-mele']) ? 'main' : ''}}">
     <div class="relative mx-auto">
         @livewire('layouts.navbar')
-        @if(in_array(request()->route()->getName(),['home', 'profile', 'management-studenti', 'editare-utilizator', 'management-carti', 'carte']))
+        @if(in_array(request()->route()->getName(),['home', 'profile', 'management-studenti', 'editare-utilizator', 'management-carti', 'carte', 'imprumuturi', 'cartile-mele']))
             @livewire('layouts.sidenav')
         @endif
-        <div id="main" class="p-10 {{in_array(request()->route()->getName(),['home', 'profile', 'management-studenti', 'editare-utilizator', 'management-carti', 'carte']) ? 'ml-64' : ''}}">
+        <div id="main" class="p-10 {{in_array(request()->route()->getName(),['home', 'profile', 'management-studenti', 'editare-utilizator', 'management-carti', 'carte', 'imprumuturi', 'cartile-mele']) ? 'ml-64' : ''}}">
             {{ $slot }}
         </div>
     </div>

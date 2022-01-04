@@ -52,6 +52,12 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
+        'covers' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/covers'),
+            'url' => env('APP_URL') . '/covers',
+            'visibility' => 'public'
+        ],
 
     ],
 
