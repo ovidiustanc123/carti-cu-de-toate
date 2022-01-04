@@ -10,8 +10,10 @@ use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Verify;
 use App\Http\Livewire\BookEdit;
 use App\Http\Livewire\BookManagement;
+use App\Http\Livewire\BorrowRequestManagement;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Home;
+use App\Http\Livewire\MyBooks;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\UserEdit;
 use App\Http\Livewire\UserManagement;
@@ -68,6 +70,12 @@ Route::middleware('auth')->group(function () {
 
     Route::get('home', Home::class)
         ->name('home');
+
+    Route::get('imprumuturi', BorrowRequestManagement::class)
+    ->name('imprumuturi');
+
+    Route::get('cartile-mele', MyBooks::class)
+    ->name('cartile-mele');
 });
 
 Route::middleware('auth')->group(function () {

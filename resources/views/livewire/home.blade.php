@@ -17,7 +17,7 @@
             <div id="book-card" class="flex flex-col items-center">
                 <span class="mb-1 text-2xl text-center text-green-600">{{ mb_strimwidth($book->name, 0, 30, "...") }}</span>
                 <span class="mb-4 text-lg text-center">{{ $book->author}} ● {{ $book->category()->first()->name }}</span>
-                <img class="h-64" src="{{$book->picture}}" alt="">
+                <img class="h-64" src="{{$book->coverUrl()}}" alt="">
                 <span class="mb-4">Cărti disponibile: <b>{{$book->copies}}</b></span>
                 @if($book->copies > 0)
                     <a href="/carte/{{$book->id}}" class="px-4 py-2 text-white bg-green-600 rounded">Vezi mai multe</a>

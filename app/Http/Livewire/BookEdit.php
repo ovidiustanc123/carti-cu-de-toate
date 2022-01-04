@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Book;
+use App\Models\BorrowRequest;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -17,16 +18,25 @@ class BookEdit extends Component
     public $description;
     public $pages;
     public $copies;
+    public $upload;
+
+    public $interval;
+
+    public $randomNumber;
 
     public $savedBook = 'savedBook';
     public $message = 'Detaliile cărții au fost salvate cu succes.';
+
+    public $requestSent = 'requestSent';
+    public $message2 = 'Cartea a fost împrumutată cu succes și te așteaptă la BookBox';
 
     protected $rules = [
         'name' => 'required|min:6',
         'author' => 'required',
         'pages' => 'required|numeric',
         'copies' => 'required|numeric',
-        'description' => 'required'
+        'description' => 'required',
+        'upload' => 'nullable|image|max:2000'
     ];
 
     protected $messages = [
@@ -46,11 +56,21 @@ class BookEdit extends Component
         $this->description = $this->book->description;
         $this->pages = $this->book->pages;
         $this->copies = $this->book->copies;
+        $this->randomNumber = rand(100, 999);
     }
 
     public function deleteBook() {
         $this->book->delete();
         $this->redirect(route('management-carti'));
+    }
+
+    public function editCover() {
+        $this->book->update([
+            'picture' => $this->upload->store('/', 'covers'),
+        ]);
+        $this->book->save();
+        $this->emit('savedBook');
+        $this->upload=null;
     }
 
     public function saveBook() {
@@ -64,8 +84,26 @@ class BookEdit extends Component
             'pages' => $this->pages,
             'copies' => $this->copies
         ]);
+        $this->upload && $this->book->update([
+            'picture' => $this->upload->store('/', 'covers'),
+        ]);
         $this->book->save();
         $this->emit('savedBook');
+    }
+
+    public function borrowBook() {
+        $this->dispatchBrowserEvent('close-modal');
+        $newRequest = BorrowRequest::create([
+            'user_id' => auth()->user()->id,
+            'book_id' => $this->book->id,
+            'status' => 'Pending',
+            'days' => $this->interval,
+        ]);
+        $newRequest->save();
+        $this->book->update([
+            'copies' => $this->book->copies -1,
+        ]);
+        $this->emit('requestSent');
     }
 
     public function render()

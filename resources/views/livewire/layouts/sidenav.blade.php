@@ -11,7 +11,7 @@
             <a href="/">
                 <div class="flex items-center px-4 py-1 text-lg {{Route::currentRouteName() === 'home' ? 'bg-green-100 text-green-700' : ''}} rounded">
                     <i class="mr-2 las la-home"></i>
-                    <span>Home</span>
+                    <span>Prima pagină</span>
                 </div>
             </a>
             @if (auth()->user()->isAdmin())
@@ -25,6 +25,19 @@
                     <div class="flex items-center px-4 py-1 text-lg {{Route::currentRouteName() === 'management-carti' ? 'bg-green-100 text-green-700' : ''}} rounded">
                         <i class="mr-2 las la-book"></i>
                         <span>Cărți</span>
+                    </div>
+                </a>
+                <a href="/imprumuturi">
+                    <div class="flex items-center px-4 py-1 text-lg {{Route::currentRouteName() === 'imprumuturi' ? 'bg-green-100 text-green-700' : ''}} rounded">
+                        <i class="mr-2 las la-address-book"></i>
+                        <span>Împrumuturi</span>
+                    </div>
+                </a>
+            @else
+                <a href="/cartile-mele">
+                    <div class="flex items-center px-4 py-1 text-lg {{Route::currentRouteName() === 'cartile-mele' ? 'bg-green-100 text-green-700' : ''}} rounded">
+                        <i class="mr-2 las la-address-book"></i>
+                        <span>Cărțile mele</span>
                     </div>
                 </a>
             @endif

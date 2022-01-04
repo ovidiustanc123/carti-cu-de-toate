@@ -55,4 +55,9 @@ class User extends Authenticatable
     public function isUser() {
         return $this->role_id == 2;
     }
+
+    public function books()
+    {
+        return $this->belongsToMany(Book::class, 'borrowed_books', 'user_id', 'book_id');
+    }
 }

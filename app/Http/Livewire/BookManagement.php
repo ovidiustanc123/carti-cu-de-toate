@@ -80,7 +80,6 @@ class BookManagement extends Component
             'description' => $this->description,
             'pages' => $this->pages,
             'copies' => $this->copies,
-            'picture' => '/img/books/cover-placeholder.jpg'
         ]);
         $newBook->save();
         $this->redirect(route('carte', ['book' => $newBook]));
