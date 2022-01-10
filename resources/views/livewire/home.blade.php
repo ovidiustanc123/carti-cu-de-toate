@@ -14,7 +14,7 @@
     </div>
     <div id="books" class="grid grid-cols-2 gap-20 xl:grid-cols-4">
         @forelse($books as $book)
-            <div id="book-card" class="flex flex-col items-center">
+            <div id="book-card" class="flex flex-col items-center justify-between h-30rem">
                 <span class="mb-1 text-2xl text-center text-green-600">{{ mb_strimwidth($book->name, 0, 30, "...") }}</span>
                 <span class="mb-4 text-lg text-center">{{ $book->author}} ● {{ $book->category()->first()->name }}</span>
                 <img class="h-64" src="{{$book->coverUrl()}}" alt="">

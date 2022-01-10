@@ -41,6 +41,10 @@
   border: 3px solid #edf2f7;
 }
 
+.h-30rem {
+  height: 30rem;
+}
+
 /*! tailwindcss v2.2.19 | MIT License | https://tailwindcss.com */
 
 /*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
